@@ -13,7 +13,7 @@ const searchRecipes = async (req, res) => {
     }
 };
 
-// 2. Detail Resep (INI YANG MUNGKIN HILANG/UNDEFINED)
+// 2. Detail Resep 
 const getRecipeDetail = async (req, res) => {
     try {
         const { id } = req.params;
@@ -25,5 +25,4 @@ const getRecipeDetail = async (req, res) => {
     }
 };
 
-// JANGAN LUPA EXPORT KEDUANYA
 module.exports = { searchRecipes, getRecipeDetail };

@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const apiRoutes = require('./routes/api'); 
-const { exec } = require('child_process'); // 1. Tambahkan import ini
+const { exec } = require('child_process'); 
 
 const app = express();
 const PORT = process.env.PORT || 3000;

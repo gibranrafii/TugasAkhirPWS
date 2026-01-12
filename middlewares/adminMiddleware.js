@@ -1,5 +1,5 @@
 const verifyAdmin = (req, res, next) => {
-    // req.user ini didapat dari 'authenticate' middleware sebelumnya (dari token JWT)
+
     
     // Cek 1: Apakah ada data user?
     // Cek 2: Apakah role-nya 'admin'?
