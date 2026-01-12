@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - MyKulliner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark px-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-shield-alt me-2"></i>
+                Admin Panel - MyKulliner
+            </a>
+            <div class="d-flex align-items-center">
+                <a href="index.html" class="btn btn-outline-light btn-sm me-2">
+                    <i class="fas fa-home me-1"></i> Dashboard User
+                </a>
+                <button class="btn btn-light btn-sm" onclick="logout()">
+                    <i class="fas fa-sign-out-alt me-1"></i> Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Statistics Cards -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-users fa-2x me-3"></i>
+                        <div>
+                            <h3 id="totalUsers">0</h3>
+                            <p>Total Users</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-utensils fa-2x me-3"></i>
+                        <div>
+                            <h3 id="totalMenus">0</h3>
+                            <p>Total Menu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-key fa-2x me-3"></i>
+                        <div>
+                            <h3 id="activeKeys">0</h3>
+                            <p>Active API Keys</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-user-shield fa-2x me-3"></i>
+                        <div>
+                            <h3 id="adminCount">0</h3>
+                            <p>Admin Users</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Import Recipe Section -->
+                <div class="admin-section">
+                    <div class="admin-header">
+                        <i class="fas fa-download"></i>
+                        Import Resep Baru (TheMealDB → Lokal)
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">
+                                <i class="fas fa-search"></i>
+                            </span>
+                            <input type="text" id="adminSearchInput" class="form-control" 
+                                   placeholder="Cari menu (misal: Beef, Chicken, Pasta)...">
+                            <button class="btn btn-primary" onclick="adminSearch()">
+                                <i class="fas fa-search me-1"></i> Cari
+                            </button>
+                        </div>
+                        <div id="adminSearchResults" class="row g-2"></div>
+                    </div>
+                </div>
+
+                <!-- Current Menu Section -->
+                <div class="admin-section">
+                    <div class="admin-header">
+                        <i class="fas fa-list"></i>
+                        Daftar Menu Rekomendasi Saat Ini
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Gbr</th>
+                                        <th>Nama Menu</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="currentMenuTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <!-- User List Section -->
+                <div class="admin-section">
+                    <div class="admin-header d-flex justify-content-between align-items-center">
+                        <span>
+                            <i class="fas fa-users"></i>
+                            Daftar User
+                        </span>
+                        <span class="admin-view-badge">
+                            <i class="fas fa-crown me-1"></i>
+                            Admin View
+                        </span>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-sm mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Avatar</th>
+                                        <th>User</th>
+                                        <th>Role</th>
+                                        <th>API Key</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="userList"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        checkAuth('admin'); 
+        loadLocalMenus();   
+        loadAllUsers();
+        loadStatistics();
+    </script>
+</body>
+</html>

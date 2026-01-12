@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun - MyKulliner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body class="auth-container">
+    
+    <div class="auth-card">
+        
+        <div id="registerSection">
+            <div class="text-center mb-4">
+                <h1 class="fw-bold text-danger">📝 Daftar Akun</h1>
+                <p class="text-muted">Buat akun untuk mendapatkan API Key</p>
+            </div>
+
+            <form onsubmit="handleRegister(event)">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Username</label>
+                    <input type="text" id="regUsername" class="form-control form-control-lg bg-light border-0" required>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Password</label>
+                    <input type="password" id="regPassword" class="form-control form-control-lg bg-light border-0" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100 btn-lg mb-3">Daftar Sekarang</button>
+            </form>
+            <div class="text-center">
+                <small>Sudah punya akun? <a href="login.html" class="text-decoration-none fw-bold">Login</a></small>
+            </div>
+        </div>
+
+        <div id="successSection" class="d-none text-center">
+            <div class="mb-3">
+                <span style="font-size: 50px;">🎉</span>
+            </div>
+            <h3 class="fw-bold text-success mb-2">Registrasi Berhasil!</h3>
+            <p class="text-muted">Halo, <strong id="displayUsername" class="text-dark">User</strong>! Akunmu telah dibuat.</p>
+            
+            <div class="alert alert-warning text-start" role="alert">
+                <small class="fw-bold d-block mb-1">🔑 API Key Anda:</small>
+                <div class="input-group">
+                    <input type="text" id="newApiKey" class="form-control bg-white font-monospace" readonly value="Loading...">
+                    <button class="btn btn-outline-dark" onclick="copyNewKey()">Copy</button>
+                </div>
+                <small class="text-muted mt-2 d-block" style="font-size: 11px;">*Simpan key ini. Anda juga bisa melihatnya nanti di Dashboard.</small>
+            </div>
+
+            <a href="login.html" class="btn btn-primary w-100 btn-lg">Lanjut ke Login ➡️</a>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Script kecil khusus halaman ini untuk copy text
+        function copyNewKey() {
+            const copyText = document.getElementById("newApiKey");
+            copyText.select();
+            navigator.clipboard.writeText(copyText.value);
+            alert("API Key disalin!");
+        }
+    </script>
+</body>
+</html>

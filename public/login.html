@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - MyKulliner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <div class="card p-4 shadow" style="width: 350px;">
+        <h3 class="text-center mb-3">🍳 Login</h3>
+        <form onsubmit="handleLogin(event)">
+            <div class="mb-3">
+                <label class="form-label fw-bold">Username</label>
+                <input type="text" id="username" class="form-control form-control-lg bg-light border-0" placeholder="Masukkan username" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Password</label>
+                <input type="password" id="password" class="form-control form-control-lg bg-light border-0" placeholder="Masukkan password" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label fw-bold text-danger">API Key</label>
+                <input type="text" id="loginApiKey" class="form-control form-control-lg bg-light border-0" placeholder="Tempel API Key disini..." required>
+                <div class="form-text text-muted" style="font-size: 12px;">
+                    *API Key didapat saat registrasi.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 btn-lg mb-3">Masuk</button>
+        </form>
+        
+        <!-- Forgot API Key Link -->
+        <div class="text-center mb-3">
+            <button type="button" class="btn btn-link text-danger p-0" data-bs-toggle="modal" data-bs-target="#forgotApiKeyModal">
+                <small>Lupa API Key?</small>
+            </button>
+        </div>
+        
+        <div class="text-center mt-3">
+            <small>Belum punya akun? <a href="register.html">Daftar disini</a></small>
+        </div>
+    </div>
+
+    <!-- Forgot API Key Modal -->
+    <div class="modal fade" id="forgotApiKeyModal" tabindex="-1" aria-labelledby="forgotApiKeyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="forgotApiKeyModalLabel">
+                        <i class="fas fa-key me-2"></i>
+                        Lupa API Key
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-3">
+                        Masukkan username dan password Anda untuk mendapatkan kembali API Key yang terdaftar.
+                    </p>
+                    <form id="forgotApiKeyForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Username</label>
+                            <input type="text" id="forgotUsername" class="form-control" placeholder="Masukkan username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Password</label>
+                            <input type="password" id="forgotPassword" class="form-control" placeholder="Masukkan password" required>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="showApiKeyCheck">
+                                <label class="form-check-label" for="showApiKeyCheck">
+                                    Tampilkan API Key (gunakan dengan hati-hati)
+                                </label>
+                            </div>
+                        </div>
+                        <div id="recoveredApiKey" class="alert alert-success d-none" style="word-break: break-all;">
+                            <strong>API Key Anda:</strong><br>
+                            <code id="apiKeyValue"></code>
+                            <button type="button" class="btn btn-sm btn-outline-success float-end" onclick="copyRecoveredApiKey()">
+                                <i class="fas fa-copy me-1"></i>Salin
+                            </button>
+                        </div>
+                        <div id="recoverError" class="alert alert-danger d-none"></div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" onclick="recoverApiKey()">
+                        <i class="fas fa-search me-1"></i>
+                        Cari API Key
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

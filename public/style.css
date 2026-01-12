@@ -1,0 +1,358 @@
+/* 1. IMPORT FONT POPPINS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #ff6b6b; /* Warna Merah Salem (Appetizing) */
+    --secondary-color: #ffe6e6;
+    --dark-text: #2d3436;
+    --light-bg: #f8f9fa;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+}
+
+/* 2. NAVBAR MODERN (SENADA TEMA) */
+.navbar {
+    /* Ganti background jadi warna utama (Merah) */
+    background-color: var(--primary-color) !important; 
+    /* Shadow warna merah biar glowing */
+    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.4); 
+    padding: 15px 0;
+}
+
+/* Logo jadi Putih */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white !important; 
+    letter-spacing: -0.5px;
+}
+
+/* Menu Link jadi Putih agak transparan */
+.nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.nav-link:hover {
+    color: white !important;
+    transform: translateY(-2px); /* Efek naik dikit pas di-hover */
+}
+
+/* --- OVERRIDE TOMBOL DI DALAM NAVBAR --- */
+
+/* Tombol Logout (tadinya Merah, kita ubah jadi Putih biar kelihatan) */
+.navbar .btn-danger {
+    background-color: white !important;
+    color: var(--primary-color) !important;
+    border: none;
+    font-weight: bold;
+    box-shadow: none;
+}
+
+.navbar .btn-danger:hover {
+    background-color: #ffe6e6 !important; /* Putih kemerahan pas hover */
+    color: var(--primary-color) !important;
+}
+
+/* Tombol Admin Panel (tadinya text-warning, kita perjelas) */
+.navbar .nav-link.text-warning {
+    color: #fff2cc !important; /* Kuning muda cerah */
+    border-color: #fff2cc !important;
+    background-color: rgba(255, 255, 255, 0.1); /* Background tipis */
+}
+
+.navbar .nav-link.text-warning:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white !important;
+}
+
+/* 3. HERO SECTION (BANNER) */
+.hero-section {
+    /* Gambar background makanan gelap biar tulisan putih terbaca */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    border-radius: 0 0 30px 30px; /* Lengkungan di bawah */
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* 4. CARD RESEP (KARTU) */
+.card {
+    border: none;
+    border-radius: 20px;
+    background: white;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Efek melayang saat di-hover */
+    box-shadow: 0 15px 30px rgba(255, 107, 107, 0.2);
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+/* 5. TOMBOL CUSTOM */
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #ee5253;
+    transform: scale(1.05);
+}
+
+.btn-outline-danger {
+    border-radius: 50px;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* 6. HALAMAN LOGIN/REGISTER */
+.auth-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffe6e6 0%, #ffffff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-card {
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    padding: 40px;
+    background: white;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Styling Input di Hero Section */
+.hero-section .input-group {
+    background: white;
+    padding: 5px; /* Memberi jarak antara border luar dan input */
+}
+
+.hero-section input {
+    font-size: 1.1rem; /* Tulisan lebih besar */
+}
+
+.hero-section .btn-primary {
+    border-radius: 50px !important; /* Tombol bulat penuh */
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* ==========================================
+   7. ADMIN PANEL STYLES
+   ========================================== */
+
+/* Admin Statistics Cards */
+.stats-card {
+    background: var(--primary-color);
+    color: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+    transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+}
+
+.stats-card h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stats-card p {
+    margin: 0;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* Admin Sections */
+.admin-section {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.admin-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 107, 107, 0.2);
+}
+
+.admin-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+}
+
+.admin-header i {
+    margin-right: 0.5rem;
+}
+
+/* Admin Tables */
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    border-bottom: 2px solid var(--primary-color);
+    font-weight: 600;
+    color: var(--dark-text);
+    background-color: var(--light-bg);
+}
+
+.table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.01);
+}
+
+/* User Avatar */
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* API Key Display */
+.api-key-display {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    background: var(--light-bg);
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Search Results */
+.search-result-item {
+    background: white;
+    border-radius: 15px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.search-result-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Admin View Badge */
+.admin-view-badge {
+    background: linear-gradient(135deg, #ffc107 0%, #ff8c00 100%);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Admin Form Controls */
+.form-control {
+    border-radius: 50px;
+    border: 2px solid #e9ecef;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.25);
+}
+
+.input-group-text {
+    border-radius: 50px 0 0 50px;
+    background: var(--light-bg);
+    border: 2px solid #e9ecef;
+    border-right: none;
+}
+
+/* Admin Small Buttons */
+.btn-sm {
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-sm:hover {
+    transform: scale(1.05);
+}
+
+/* Admin Badges */
+.badge {
+    padding: 0.5rem 0.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
